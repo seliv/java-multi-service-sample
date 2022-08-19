@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/acme_plan_service?useSsl=true&trustServerCertificate=true
+    username: acme_db_user
+    password: acme_db_2022_casualty!pronoun()
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  jackson:
+    serialization:
+      indent_output: true
+
+  flyway:
+    baseline-on-migrate: true
+
+server:
+  port: 9002
+
+acme:
+  process-service-api: http://localhost:9003/api

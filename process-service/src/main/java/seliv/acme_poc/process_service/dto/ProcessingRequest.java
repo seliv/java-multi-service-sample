@@ -1,0 +1,11 @@
+package seliv.acme_poc.process_service.dto;
+
+import lombok.Data;
+import lombok.experimental.Accessors;
+
+@Data
+@Accessors(chain = true)
+public class ProcessingRequest {
+    private String targetCode;
+    private double amount;
+}

@@ -1,0 +1,13 @@
+spring:
+  jackson:
+    serialization:
+      indent_output: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+server:
+  port: 9001
+
+acme:
+  plan-service-api: http://localhost:9002
