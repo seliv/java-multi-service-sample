@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://host.docker.internal:3306/acme_plan_service?useSsl=true&trustServerCertificate=true
+
+acme:
+  process-service-api: http://process-container:9003/api

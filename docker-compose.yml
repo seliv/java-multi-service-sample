@@ -1,0 +1,35 @@
+version: '3.2'
+services:
+    process-service:
+        container_name: process-container
+        build:
+            context: process-service
+            dockerfile: Dockerfile
+        image: process-container:latest
+        ports:
+            - 9003:9003
+        networks:
+            - acme-bundle-network
+    plan-service:
+        container_name: plan-container
+        build:
+            context: plan-service
+            dockerfile: Dockerfile
+        image: plan-container:latest
+        ports:
+            - 9002:9002
+        networks:
+            - acme-bundle-network
+    payment-api-service:
+        container_name: payment-api-container
+        build:
+            context: payment-api-service
+            dockerfile: Dockerfile
+        image: payment-api-container:latest
+        ports:
+            - 9001:9001
+        networks:
+            - acme-bundle-network
+networks:
+    acme-bundle-network:
+        driver: bridge
