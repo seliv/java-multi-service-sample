@@ -14,7 +14,7 @@ phases:
       - docker-compose build
   post_build:
     commands:
-      - docker push
+      - docker-compose push
       - printf '[{"name":"multi-service-sample-app","imageUri":"%s"}]' ${REPOSITORY_URI}/payment-api-container-ecr:latest > images.json
       - printenv
       - cat images.json
