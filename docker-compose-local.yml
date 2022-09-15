@@ -5,7 +5,7 @@ services:
         build:
             context: process-service
             dockerfile: Dockerfile
-        image: ${REPOSITORY_URI}/process-container-ecr:latest
+        image: process-container:latest
         ports:
             - 9003:9003
         networks:
@@ -15,7 +15,7 @@ services:
         build:
             context: plan-service
             dockerfile: Dockerfile
-        image: ${REPOSITORY_URI}/plan-container-ecr:latest
+        image: plan-container:latest
         ports:
             - 9002:9002
         networks:
@@ -25,7 +25,7 @@ services:
         build:
             context: payment-api-service
             dockerfile: Dockerfile
-        image: ${REPOSITORY_URI}/payment-api-container-ecr:latest
+        image: payment-api-container:latest
         ports:
             - 9001:9001
         networks:
