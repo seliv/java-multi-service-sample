@@ -11,11 +11,16 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn install -DskipTests
+      - docker-compose build
   post_build:
     commands:
+      - printf '[{"name":"multi-service-sample-app","imageUri":"${REPOSITORY_URI}"}]' > imagedefinitions.json
+      - printenv
+      - cat imagedefinitions.json
       - echo Build completed on `date`
 artifacts:
   files:
     - payment-api-service/target/acme-poc-payment-api-service-0.0.1-SNAPSHOT.jar
     - plan-service/target/acme-poc-plan-service-0.0.1-SNAPSHOT.jar
     - process-service/target/acme-poc-process-service-0.0.1-SNAPSHOT.jar
+    - images.json
