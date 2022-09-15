@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn install
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - payment-api-service/target/acme-poc-payment-api-service-0.0.1-SNAPSHOT.jar
+    - plan-service/target/acme-poc-plan-service-0.0.1-SNAPSHOT.jar
+    - process-service/target/acme-poc-process-service-0.0.1-SNAPSHOT.jar
