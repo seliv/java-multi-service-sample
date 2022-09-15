@@ -15,7 +15,7 @@ Mappings:
       CIDR: 10.10.10.96/27
   CodeBuildImages:
     Main:
-      ImageName: aws/codebuild/standard:5.0
+      ImageName: aws/codebuild/standard:6.0
 
 Resources:
   VPC:
@@ -531,7 +531,7 @@ Resources:
                 Provider: CodeStarSourceConnection
               Configuration:
                 FullRepositoryId: seliv/java-multi-service-sample
-                BranchName: dev
+                BranchName: feature/aws-env-setup
 #                RepositoryName: java-multi-service-sample
                 ConnectionArn: !Ref GitHubConnection
               OutputArtifacts:
