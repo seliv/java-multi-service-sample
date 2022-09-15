@@ -14,9 +14,10 @@ phases:
       - docker-compose build
   post_build:
     commands:
-      - printf '[{"name":"multi-service-sample-app","imageUri":"${REPOSITORY_URI}"}]' > imagedefinitions.json
+      - docker push $REPOSITORY_URI
+      - printf '[{"name":"multi-service-sample-app","imageUri":"%s"}]' ${REPOSITORY_URI} > images.json
       - printenv
-      - cat imagedefinitions.json
+      - cat images.json
       - echo Build completed on `date`
 artifacts:
   files:
